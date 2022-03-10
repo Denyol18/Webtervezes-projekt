@@ -18,7 +18,7 @@
     background-color: cornflowerblue;
 }
 
-body {
+body{
     font-family: "Trebuchet MS", sans-serif;
     color: #D3D0CBFF;
     margin: 0;
@@ -41,7 +41,6 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #9FB1BCFF;
-    background-size: cover;
 }
 
 nav li {
@@ -62,7 +61,7 @@ nav a:hover {
     background-color: antiquewhite;
 }
 
-main > * {
+main > *{
     padding: 20px;
     background-color: #6E8898FF;
 }

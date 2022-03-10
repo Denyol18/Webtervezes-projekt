@@ -1,6 +1,8 @@
 # webterv-projekt
-images - ide a képek jönnek (az asd.txt azért van ott, mert amúgy nem lehet olyan mappát csinálni, amiben nincs semmi, szóval az ott egy placeholder)
+images - ide a képek jönnek
 
 css - css fájlok helye
 
 html - html fájlok helye
+
+vidoes - videók helye

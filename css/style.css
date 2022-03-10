@@ -1,3 +1,23 @@
+#lent {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+#fent {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.kozepre {
+    text-align: center;
+}
+
+#active {
+    background-color: cornflowerblue;
+}
+
 body {
     font-family: "Trebuchet MS", sans-serif;
     color: #D3D0CBFF;
@@ -35,7 +55,6 @@ nav a {
     text-decoration: none;
     padding: 10px;
     text-transform: uppercase;
-    text-align: center;
     color: #2E5266FF;
 }
 
@@ -53,24 +72,5 @@ footer {
     padding: 10px;
 }
 
-#lent {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-}
 
-#fent {
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-
-.kozepre {
-    text-align: center;
-    margin: 0 auto;
-}
-
-#active {
-    background-color: cornflowerblue;
-}
 

@@ -5,4 +5,4 @@ css - css fájlok helye
 
 html - html fájlok helye
 
-vidoes - videók helye
+videos - videók helye

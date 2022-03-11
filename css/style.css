@@ -21,12 +21,9 @@
     66% {background-image: url("../images/wolf3.jpg");}
     100% {background-image: url("../images/wolf5.jpg");}
 }
+
 .slideshow {
-    margin: auto 20px;
-    border: 5px solid #9FB1BCFF;
-    border-radius: 20px;
-    width: 600px;
-    height: 300px;
+    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -34,23 +31,39 @@
     animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    box-shadow: 3px 6px 5px #2E5266FF;
+    margin: auto 20px;
+    width: 600px;
+    height: 300px;
     float: right;
 }
 
-#active {
-    background-color: cornflowerblue;
+.broder {
+    border: 5px solid #9FB1BCFF;
+    border-radius: 20px;
 }
 
-body{
+#bj {
+    position: relative;
+    margin: auto 20px;
+    width: 600px;
+    height: 300px;
+    float: right;
+}
+
+div[title], video[title], img[title] {
+    box-shadow: 3px 6px 5px #2E5266FF;
+}
+
+body {
     font-family: "Trebuchet MS", sans-serif;
     color: #D3D0CBFF;
     margin: 0;
     border: 0;
     position: relative;
+    transition: top 5s;
 }
 
-header{
+header {
     background-color: #2E5266FF;
     padding: 20px;
 }
@@ -86,12 +99,16 @@ nav a:hover {
     transition-duration: 0.5s;
 }
 
-main > *{
+#active {
+    background-color: cornflowerblue;
+}
+
+main > section {
     padding: 20px;
     background-color: #6E8898FF;
 }
 
-main h2{
+section h2 {
     text-shadow: 3px 6px 5px #2E5266FF;
 }
 
@@ -101,36 +118,30 @@ footer {
 }
 
 hr {
+    border-top: white;
     margin: 0;
-    padding: 0;
 }
 
 video {
     display: block;
     margin: auto;
-    border: 5px solid #9FB1BCFF;
-    border-radius: 20px;
-    box-shadow: 3px 6px 5px #2E5266FF;
 }
-
 
 @media only screen and (max-width: 1024px) {
-    .slideshow {position: static; margin: 20px auto;}
+    .slideshow, #bj {height: 200px; width: 400px; margin: 30px 10px;}
 }
 
-@media only screen and (max-width: 640px) {
-    nav, nav ul{width: 100%;}
-    nav li {display: block; text-align: center;}
-    .slideshow {height: 200px; width: 400px; margin: 30px 10px;}
-    #lent {position: relative;}
-    #fent {position: relative;}
-    video{width: 85%; height: 85%}
+@media only screen and (max-width: 660px) {
+    nav, nav ul{width: 100%}
+    nav li {display: block; text-align: center}
+    nav a {padding: 5px}
+    #fent, #lent {position: relative}
+    video {width: 85%; height: 85%}
 }
 
-
-
-
-
-
-
-
+@media print {
+    video, nav, .slideshow, footer, img {display: none}
+    * {color: black}
+    hr {page-break-after: auto}
+    main h2 {text-shadow: none}
+}

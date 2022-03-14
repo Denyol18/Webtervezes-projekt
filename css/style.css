@@ -131,12 +131,34 @@ div[title], video[title], img[title], table{
     100% {background-image: url("../images/wolf5.jpg")}
 }
 
+@keyframes slideshow2 {
+    0% {background-image: url("../images/lara2.jpg")}
+    33% {background-image: url("../images/lara3.jpg")}
+    66% {background-image: url("../images/lara4.jpg")}
+    100% {background-image: url("../images/lara5.jpg")}
+}
+
 .slideshow{
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     animation-name: slideshow;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    margin: 20px;
+    width: 600px;
+    height: 300px;
+    float: right;
+}
+
+.slideshow2{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation-name: slideshow2;
     animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate;

@@ -178,7 +178,7 @@ div[title], video[title], img[title], table{
 }
 
 @media only screen and (max-width: 1024px) {
-    .slideshow, .kepjobbra {height: 200px; width: 400px; margin: 20px}
+    .slideshow, .slideshow2, .kepjobbra {height: 200px; width: 400px; margin: 20px}
 }
 
 @media only screen and (max-width: 880px) {
@@ -193,7 +193,7 @@ div[title], video[title], img[title], table{
 }
 
 @media print {
-    video, nav, .slideshow, footer, img, .broder {display: none}
+    video, nav, .slideshow, .slideshow2, footer, img, .broder {display: none}
     * {color: black}
     main h2 {text-shadow: none}
 }

@@ -120,8 +120,20 @@ footer {
     text-align: center;
 }
 
-div[title], video[title], img[title], table{
+.kezdo {
+    box-shadow: none !important;
+    height: 300px;
+    width: 250px;
+    padding: 20px;
+}
+
+div[title], video[title], img[title], #gameplay > table, form{
     box-shadow: 3px 6px 5px #2E5266FF;
+}
+
+*::selection {
+    background-color: cornflowerblue;
+    color: white;
 }
 
 @keyframes slideshow {

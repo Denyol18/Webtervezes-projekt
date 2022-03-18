@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width-divide-width, initial-scale: 1.0">
@@ -77,8 +77,72 @@
 
             <h2>Vélemény megosztó</h2>
 
-            <form>
-                <input type="text" name="username" maxlength="50" placeholder="Felhasználónév" required>
+            <form autocomplete="off">
+
+                <fieldset>
+
+                    <legend>Regisztrációs adatok</legend>
+                    <br/>
+
+                    <label>Felhasználónév:<input type="text" name="username" required></label>
+                    <br/><br/>
+
+                    <label>Kor:<input type="number" name="age" maxlength="3" required></label>
+                    <br/><br/>
+
+                    Nem: <label for="option1">Férfi:</label>
+                    <input type="radio" id="option1" name="sex" checked/>
+
+                    <label for="option2">Nő:</label>
+                    <input type="radio" id="option2" name="sex"/>
+
+                    <label for="option3">Egyéb:</label>
+                    <input type="radio" id="option3" name="sex"/>
+                    <br/><br/>
+
+                    <label>Jelszó:<input type="password" name="psswd" required></label>
+                    <br/><br/>
+
+                    <label>Jelszó ismét:<input type="password" name="psswd" required></label>
+                    <br/><br/>
+
+                    <label>E-mail:<input type="email" name="email" placeholder="valaki@valami.com" required></label>
+                    <br/><br/>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Játékok</legend>
+                    <br/>
+                    Mely játékot/játékokat próbáltad ki? <br/><br/>
+
+                    <label for="game1">Wolfenstein: The New Order</label>
+                    <input type="checkbox" id="game1" name="Wolfenstein: The New Order" checked/> <br/>
+
+                    <label for="game2">Halo: Combat Evolved</label>
+                    <input type="checkbox" id="game2" name="Halo: Combat Evolved"/> <br/>
+
+                    <label for="game3">Shadow of the Tomb Raider</label>
+                    <input type="checkbox" id="game3" name="Shadow of the Tomb Raider"/> <br/>
+
+                    <label for="game4">vmi</label>
+                    <input type="checkbox" id="game4" name="vmi"/> <br/><br/>
+
+                    Mik tetszettek benne/bennük?
+                    <label for="pos"></label> <br/><br/>
+                    <textarea id="pos" name="positives" rows="20" cols="60" maxlength="1000" required></textarea>
+                    <br/><br/>
+
+                    Mik NEM tetszettek benne/bennük?
+                    <label for="neg"></label> <br/><br/>
+                    <textarea id="neg" name="negatives" rows="20" cols="60" maxlength="1000" required></textarea>
+                    <br/><br/>
+
+                    <input type="reset" name="rst" value="Visszaállítás">
+                    <input type="submit" name="sbmt" value="Küldés">
+
+                </fieldset>
             </form>
 
         </section>

@@ -67,7 +67,7 @@ hr {
     margin: 0;
 }
 
-video {
+video, iframe {
     display: block;
     margin: 20px auto;
 }
@@ -152,7 +152,7 @@ footer {
     padding: 20px;
 }
 
-div[title], video[title], img[title], #gameplay > table, form{
+div[title], video[title], img[title], #gameplay > table, form, iframe{
     box-shadow: 3px 6px 5px #2E5266FF;
 }
 
@@ -230,13 +230,11 @@ div[title], video[title], img[title], #gameplay > table, form{
 }
 
 @media only screen and (max-width: 660px) {
-    video {width: 75%; height: 75%}
+    video, iframe {width: 75%; height: 75%}
 }
 
 @media print {
-    video, nav, .slideshow, .slideshow2, footer, img, .broder, form {display: none}
+    video, iframe, nav, .slideshow, .slideshow2, footer, img, .broder, form {display: none}
     * {color: black}
     main h2 {text-shadow: none}
 }
-
-

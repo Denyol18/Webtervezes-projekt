@@ -99,12 +99,32 @@ footer {
     z-index: 10;
 }
 
+#hunt{
+    transform: translate(0, -40px);
+}
+
 .kepjobbra {
     position: relative;
     margin: 20px;
     float: right;
     width: 600px;
     height: 300px;
+}
+
+.kepjobbrasmol {
+    position: relative;
+    margin: 20px;
+    float: right;
+    width: 450px;
+    height: 250px;
+}
+
+.kepbalrasmol {
+    position: relative;
+    margin: 20px;
+    float: left;
+    width: 450px;
+    height: 250px;
 }
 
 .kepes {
@@ -195,7 +215,7 @@ div[title], video[title], img[title], #gameplay > table, form{
 }
 
 @media only screen and (max-width: 1024px) {
-    .slideshow, .slideshow2, .kepjobbra {height: 200px; width: 400px; margin: 20px}
+    .slideshow, .slideshow2, .kepjobbra, .kepjobbrasmol, .kepbalrasmol {height: 200px; width: 400px; margin: 20px; float: none}
 }
 
 @media only screen and (max-width: 880px) {
@@ -205,6 +225,8 @@ div[title], video[title], img[title], #gameplay > table, form{
     #fent, #lent {position: relative}
     form {width: 75%; height: 75%}
     textarea {width: 85%; height: 85%}
+    #hunt {transform: translate(0, 0)}
+
 }
 
 @media only screen and (max-width: 660px) {

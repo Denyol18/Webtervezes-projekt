@@ -57,19 +57,19 @@
 
             <h2>The games</h2>
 
-            <a href="danigame1.html">
+            <a href="danigame1.php">
                 <img class="kezdo" src="../images/wolfkezdo.jpg" alt="Where wolf" title="Wolfenstein: The New Order | Dani kedvencei part 1">
             </a>
 
-            <a href="danigame2.html">
+            <a href="danigame2.php">
                 <img class="kezdo" src="../images/halokezdo.jpg" alt="Where halo" title="Halo: Combat Evolved | Dani kedvencei part 2">
             </a>
 
-            <a href="ferigame1.html">
+            <a href="ferigame1.php">
                 <img class="kezdo" src="../images/larakezdo.jpg" alt="Where lara" title="Shadow of the Tomb Raider | Feri kedvencei part 1">
             </a>
 
-            <a href="ferigame2.html">
+            <a href="ferigame2.php">
                 <img class="kezdo" src="../images/huntkezdo.jpg" alt="Where hunt" title="Hunt: Showdown | Feri kedvencei part 2">
             </a>
 

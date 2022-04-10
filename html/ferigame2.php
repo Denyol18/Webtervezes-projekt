@@ -170,19 +170,19 @@
 
         <ul>
             <li>
-                <a href="kezdo.html">Kezdőlap</a>
+                <a href="kezdo.php">Kezdőlap</a>
             </li>
             <li>
-                <a href="danigame1.html">Dani kedvencei part 1</a>
+                <a href="danigame1.php">Dani kedvencei part 1</a>
             </li>
             <li>
-                <a href="danigame2.html">Dani Kedvencei part 2</a>
+                <a href="danigame2.php">Dani Kedvencei part 2</a>
             </li>
             <li>
-                <a href="ferigame1.html">Feri kedvencei part 1</a>
+                <a href="ferigame1.php">Feri kedvencei part 1</a>
             </li>
             <li>
-                <a id="active" href="ferigame2.html">Feri kedvencei part 2</a>
+                <a id="active" href="ferigame2.php">Feri kedvencei part 2</a>
             </li>
         </ul>
     </nav>

@@ -103,6 +103,15 @@ footer {
     transform: translate(0, -40px);
 }
 
+.errors {
+    background-color: crimson;
+    width: 600px;
+    margin: 10px auto;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
 .kepjobbra {
     position: relative;
     margin: 20px;
@@ -152,7 +161,7 @@ footer {
     padding: 20px;
 }
 
-div[title], video[title], img[title], #gameplay > table, form, iframe{
+div[title], video[title], img[title], #gameplay > table, form, iframe, .errors{
     box-shadow: 3px 6px 5px #2E5266FF;
 }
 
@@ -230,11 +239,11 @@ div[title], video[title], img[title], #gameplay > table, form, iframe{
 }
 
 @media only screen and (max-width: 660px) {
-    video, iframe {width: 75%; height: 75%}
+    video, iframe, .errors {width: 75%; height: 75%}
 }
 
 @media print {
-    video, iframe, nav, .slideshow, .slideshow2, footer, img, .broder, form {display: none}
+    video, iframe, nav, .slideshow, .slideshow2, footer, img, .broder, form, .errors{display: none}
     * {color: black}
     main h2 {text-shadow: none}
 }

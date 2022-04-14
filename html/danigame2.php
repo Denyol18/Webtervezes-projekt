@@ -212,9 +212,9 @@
         </ul>
     </nav>
 
-    <footer>
-        <h3 class="kozepre">Készítette: Sprok Dániel és Megyesi Ferenc</h3>
-    </footer>
+    <?php
+    include_once "../common/footer.php";
+    ?>
 
 </body>
 </html>

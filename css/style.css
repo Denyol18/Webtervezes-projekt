@@ -154,6 +154,7 @@ footer {
     text-align: center;
 }
 
+
 .kezdo {
     box-shadow: none !important;
     height: 300px;
@@ -161,7 +162,7 @@ footer {
     padding: 20px;
 }
 
-div[title], video[title], img[title], #gameplay > table, form, iframe, .errors{
+div[title], video[title], img[title], img, #gameplay > table, form, iframe, .errors{
     box-shadow: 3px 6px 5px #2E5266FF;
 }
 

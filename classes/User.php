@@ -2,11 +2,11 @@
 
 class User
 {
-    private string $username;
+    private string $username = "";
     private int $age;
-    private string $sex;
-    private string $password;
-    private string $email;
+    private string $sex = "";
+    private string $password = "";
+    private string $email = "";
 
     public function __construct(string $username, int $age, string $sex, string $password, string $email)
     {

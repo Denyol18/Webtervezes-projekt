@@ -1,3 +1,3 @@
 <header>
-    <h1 class="kozepre">Kedvenc Jatekaink</h1>
+    <h1 class="kozepre">Kedvenc játékaink</h1>
 </header>

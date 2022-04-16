@@ -32,28 +32,31 @@ function saveData(string $filename, array $arraydata) {
 }
 
 function generateNavigation(string $currentPage) {
-    echo "<nav><ul>" .
-        "<li" . ($currentPage === "index" ? " class='active'" : "") . ">" .
-        "<a href='index.php'>Főoldal</a>" .
+    echo "<nav id='lent'><ul>" .
+        "<li" . ($currentPage === "kezdo" ? " id='active'" : "") . ">" .
+        "<a href='kezdo.php'>Kezdőlap</a>" .
         "</li>" .
-        "<li" . ($currentPage === "pizza" ? " class='active'" : "") . ">" .
-        "<a href='pizza.php'>Pizzák</a>" .
+        "<li" . ($currentPage === "danigame1" ? " id='active'" : "") . ">" .
+        "<a href='danigame1.php'>Dani Kedvencei part 1</a>" .
+        "</li>" .
+        "<li" . ($currentPage === "danigame2" ? " id='active'" : "") . ">" .
+        "<a href='danigame2.php'>Dani Kedvencei part 2</a>" .
+        "</li>" .
+        "<li" . ($currentPage === "ferigame1" ? " id='active'" : "") . ">" .
+        "<a href='ferigame1.php'>Feri Kedvencei part 1</a>" .
+        "</li>" .
+        "<li" . ($currentPage === "ferigame2" ? " id='active'" : "") . ">" .
+        "<a href='ferigame2.php'>Feri Kedvencei part 2</a>" .
         "</li>";
 
     if (isset($_SESSION["user"])) {
-        echo "<li" . ($currentPage === "cart" ? " class='active'" : "") . ">" .
-            "<a href='cart.php'>Kosaram</a>" .
-            "</li>" .
-            "<li" . ($currentPage === "profile" ? " class='active'" : "") . ">" .
+        echo "<li" . ($currentPage === "profile" ? " id='active'" : "") . ">" .
             "<a href='profile.php'>Profilom</a>" .
             "</li>" .
             "</ul></nav>";
     } else {
-        echo "<li" . ($currentPage === "login" ? " class='active'" : "") . ">" .
+        echo "<li" . ($currentPage === "login" ? " id='active'" : "") . ">" .
             "<a href='login.php'>Bejelentkezés</a>" .
-            "</li>" .
-            "<li" . ($currentPage === "signup" ? " class='active'" : "") . ">" .
-            "<a href='signup.php'>Regisztráció</a>" .
             "</li>" .
             "</ul></nav>";
     }
@@ -80,7 +83,7 @@ function uploadProfilePicture(array &$errors, string $username) {
         }
 
         if (count($errors) === 0) {
-            $utvonal = "assets/img/profile-pictures/$username.$extension";
+            $path = "../images/profile-pictures/$username.$extension";
             $flag = move_uploaded_file($_FILES["profile-picture"]["tmp_name"], $path);
 
             if (!$flag) {

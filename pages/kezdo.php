@@ -71,9 +71,9 @@
     <link rel="icon" href="../images/controller.jpg">
 </head>
 <body>
-    <header>
-        <h1 class="kozepre">Kedvenc játékaink</h1>
-    </header>
+    <?php
+    include_once "../common/header.php";
+    ?>
 
     <nav id="fent">
 
@@ -168,13 +168,13 @@
                     <br/><br/>
 
                     Nem: <label for="option1">Férfi:</label>
-                    <input type="radio" id="option1" name="sex"/>
+                    <input type="radio" id="option1" name="sex" value="férfi"/>
 
                     <label for="option2">Nő:</label>
-                    <input type="radio" id="option2" name="sex"/>
+                    <input type="radio" id="option2" name="sex" value="nő"/>
 
                     <label for="option3">Egyéb:</label>
-                    <input type="radio" id="option3" name="sex" checked/>
+                    <input type="radio" id="option3" name="sex" value="egyéb" checked/>
                     <br/><br/>
 
                     <label>Jelszó:<input type="password" name="psswd" required></label>
@@ -225,6 +225,11 @@
         </section>
 
     </main>
+
+    <?php
+    include_once "../common/methods.php";
+    generateNavigation("kezdo");
+    ?>
 
     <?php
     include_once "../common/footer.php";

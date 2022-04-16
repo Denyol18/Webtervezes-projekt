@@ -166,26 +166,11 @@
 
     </main>
 
-    <nav id="lent">
 
-        <ul>
-            <li>
-                <a href="kezdo.php">Kezdőlap</a>
-            </li>
-            <li>
-                <a href="danigame1.php">Dani kedvencei part 1</a>
-            </li>
-            <li>
-                <a href="danigame2.php">Dani Kedvencei part 2</a>
-            </li>
-            <li>
-                <a href="ferigame1.php">Feri kedvencei part 1</a>
-            </li>
-            <li>
-                <a id="active" href="ferigame2.php">Feri kedvencei part 2</a>
-            </li>
-        </ul>
-    </nav>
+    <?php
+    include_once "../common/methods.php";
+    generateNavigation("ferigame2");
+    ?>
 
     <?php
     include_once "../common/footer.php";

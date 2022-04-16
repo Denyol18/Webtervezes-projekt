@@ -1,20 +1,20 @@
 <?php
-    include_once "classes/User.php";
-    include_once "common/methods.php";
+    include_once "../classes/User.php";
+    include_once "../common/methods.php";
     session_start();
 
-    $users = loadData("data/users.txt");
+    $users = loadData("../data/users.txt");
 
     $successfulLogin = true;
 
     if (isset($_POST["login-btn"])) {
-        $felhasznalonev = $_POST["username"];
-        $jelszo = $_POST["password"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
         foreach ($users as $user) {
-            if ($user->getUsername() === $felhasznalonev && password_verify($jelszo, $user->getPassword())) {
+            if ($user->getUsername() === $username && password_verify($password, $user->getPassword())) {
                 $_SESSION["user"] = $user;
-                header("Location: User.php");
+                header("Location: profile.php");
             }
         }
 
@@ -28,40 +28,41 @@
     <title>Bejelentkezés</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/icon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="../images/controller.jpg">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <?php
-        include_once "common/header.php";
+        include_once "../common/header.php";
         generateNavigation("login");
     ?>
 
-    <main>
-        <h1 class="center">Bejelentkezés</h1>
+    <main class="fadeIn">
 
-        <?php
-                if (!$successfulLogin) {
-                echo "<div class='errors'><p>A belépési adatok nem megfelelők!</p></div>";
+        <section class="form-container">
+            <?php
+            if (!$successfulLogin) {
+                echo "<div class='errors broder'><p>A belépési adatok nem megfelelők!</p></div>";
             }
-        ?>
-
-        <div class="form-container">
-            <img src="images/profile-pictures/default.png" alt="Avatar" class="avatar-icon">
+            ?>
+            <h1 class="kozepre">Bejelentkezés</h1>
+            <img src="../images/profile-pictures/default.png" alt="Avatar" class="broder">
             <form action="login.php" method="POST" autocomplete="off">
-                <label for="uname" class="required-label">Felhasználónév: </label>
+                <fieldset>
+                <label for="uname">Felhasználónév: </label>
                 <input type="text" name="username" id="uname" required>
 
-                <label for="pswd" class="required-label">Jelszó: </label>
+                <label for="pswd">Jelszó: </label>
                 <input type="password" name="password" id="pswd" required>
 
                 <input type="submit" name="login-btn" value="Bejelentkezés">
+                </fieldset>
             </form>
-        </div>
+        </section>
     </main>
 
     <?php
-        include_once "common/footer.php";
+        include_once "../common/footer.php";
     ?>
 </body>
 </html>

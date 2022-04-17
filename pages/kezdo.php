@@ -1,10 +1,39 @@
 <?php
     include_once "../classes/User.php";
     include_once "../common/methods.php";
+    include_once "../classes/Comment.php";
+    session_start();
 
     $users = loadData("../data/users.txt");
+    $comments = loadComments("../data/comments.txt");
+    $comments = array_reverse($comments);
 
     $errors = [];
+
+    if (isset($_POST["send"])) {
+        $errors1 = [];
+
+    if (!isset($_POST["opinion"]) || trim($_POST["opinion"]) === "") {
+        $errors1[] = "HIBA: Add meg a véleményed szövegét!";
+    }
+
+    if (strlen($_POST["opinion"]) > 500) {
+        $errors1[] = "HIBA: A véleményed nem lehet hosszabb 500 karakternél!";
+    }
+
+    $username1 = $_SESSION["user1"]["username1"];
+    $date = new DateTime();
+    $date->setTimezone(new DateTimeZone("Europe/Budapest"));
+    $text = trim($_POST["opinion"]);
+
+    if (count($errors1) === 0) {
+        $new_comment = new Comment($username1, $date, $text);
+        $comments[] = $new_comment;
+        saveComments("../data/comments.txt", $comments);
+
+        header("Location: kezdo.php");
+    }
+}
 
     if(isset($_POST["signup"])) {
         $username = $_POST["username"];
@@ -85,7 +114,10 @@
                 <a href="#games">The games</a>
             </li>
             <li>
-                <a href="#urlap">Vélemény megosztó</a>
+                <a href="#opinions">Vélemények</a>
+            </li>
+            <li>
+                <a href="#signup">Regisztráció és vélemény írás</a>
             </li>
         </ul>
     </nav>
@@ -101,10 +133,21 @@
                 foreach ($errors as $error) {
                     echo "<p>" . $error . "</p>";
                 }
-
                 echo "</div>";
             }
             ?>
+
+            <?php
+            if (isset($errors1) && count($errors1) > 0) {
+                echo "<div class='errors broder'>";
+
+                    foreach ($errors1 as $error2) {
+                        echo "<p>" . $error2 . "</p>";
+                    }
+                echo "</div>";
+            }
+            ?>
+
 
             <h2>Üdvözlő</h2>
 
@@ -117,13 +160,19 @@
 
             <p>
             A következő négy oldalon kiválasztottunk 2-2 játékot amikről olvashattok és nagyon örülnénk, ha ti is kipróbálnátok őket,
-            ha kedvet adtunk nektek a felfedezésükre. Az egyes játékokról szóló oldalakat a képekre kattintva érhetitek el.
+            ha kedvet adtunk nektek a felfedezésükre. Az egyes játékokról szóló oldalakat a képekre kattintva érhetitek el, vagy az alsó
+                navigációs menü használatával.
             </p>
 
             <p>
             Ha esetleg már játszottatok a játékok valamelyikével vagy azután próbáltátok ki, miután kedvet adtunk nektek, akkor
             lehetőségetek van a lap alján lévő űrlapon keresztül leírni mi a véleményetek az adott játékról. Meglátásaitokat kíváncsian
-            várjuk! :)
+                várjuk! :)
+            </p>
+
+            <p>
+                <strong>REGISZTRÁLNI CSAK EZEN AZ OLDALON LEHET! Véleményt írni csak bejelentkezve lehet.
+                Ha nem látod a vélemény íráshoz szükséges textfieldet, akkot nem vagy bejelentkezve!</strong>
             </p>
 
         </section>
@@ -150,15 +199,38 @@
 
         </section>
 
-        <section id="urlap">
+        <section id="opinions">
 
-            <h2>Vélemény megosztó</h2>
+            <h2>Vélemények</h2>
+
+            <?php  if (count($comments) === 0) { ?>
+                <p>Még nem érkezett vélemény.</p>
+            <?php }
+            else { ?>
+
+                <?php foreach ($comments as $comment) { ?>
+                    <div class="comment broder">
+                        <img src="<?php echo getProfilePicture('../images/profile-pictures', $comment->getAuthor(), ['png', 'jpg']); ?>" alt="Profilkép" class="profile"/>
+                        <div><?php echo $comment->getAuthor(); ?></div>
+                        <div><?php echo $comment->getDate()->format('Y-m-d H:i:s'); ?></div>
+                        <div><?php echo $comment->getText(); ?></div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+
+
+
+        </section>
+
+        <section id="signup">
+
+            <h2>Regisztráció és vélemény írás</h2>
 
             <form action="kezdo.php" method="POST" autocomplete="off">
 
                 <fieldset>
 
-                    <legend>Regisztrációs adatok</legend>
+                    <legend>Regisztráció</legend>
                     <br/>
 
                     <label>Felhasználónév:<input type="text" name="username" required></label>
@@ -186,41 +258,30 @@
                     <label>E-mail:<input type="email" name="email" placeholder="valaki@valami.com" required></label>
                     <br/><br/>
 
-                </fieldset>
-
-                <fieldset>
-
-                    <legend>Játékok</legend>
-                    <br/>
-                    Mely játékot/játékokat próbáltad ki? <br/><br/>
-
-                    <label for="game1">Wolfenstein: The New Order</label>
-                    <input type="checkbox" id="game1" name="Wolfenstein: The New Order" checked/> <br/>
-
-                    <label for="game2">Halo: Combat Evolved</label>
-                    <input type="checkbox" id="game2" name="Halo: Combat Evolved"/> <br/>
-
-                    <label for="game3">Shadow of the Tomb Raider</label>
-                    <input type="checkbox" id="game3" name="Shadow of the Tomb Raider"/> <br/>
-
-                    <label for="game4">Hunt: Showdown</label>
-                    <input type="checkbox" id="game4" name="Hunt: Showdown"/> <br/><br/>
-
-                    Mik tetszettek benne/bennük?
-                    <label for="pos"></label> <br/><br/>
-                    <textarea id="pos" name="positives" rows="20" cols="60" maxlength="1000"></textarea>
-                    <br/><br/>
-
-                    Mik NEM tetszettek benne/bennük?
-                    <label for="neg"></label> <br/><br/>
-                    <textarea id="neg" name="negatives" rows="20" cols="60" maxlength="1000"></textarea>
-                    <br/><br/>
-
                     <input type="reset" name="reset" value="Visszaállítás">
                     <input type="submit" name="signup" value="Küldés">
 
                 </fieldset>
             </form>
+
+
+            <?php if (isset($_SESSION["user"])) { ?>
+            <form action="kezdo.php" method="POST">
+                <fieldset>
+                    <legend>Vélemény írás</legend>
+                    <br/>
+
+                    Mely játékokat próbáltad ki? Mik tetszettek bennük és mik nem? Itt ezt mind leírhatod :) (max. 500 karakter)
+                    <label for="opin"></label> <br/><br/>
+                    <textarea id="opin" name="opinion" rows="20" cols="60" maxlength="500"></textarea>
+                    <br/><br/>
+
+                    <input type="reset" name="reset" value="Visszaállítás">
+                    <input type="submit" name="send" value="Küldés">
+
+                </fieldset>
+            </form>
+            <?php } ?>
 
         </section>
 

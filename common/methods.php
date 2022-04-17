@@ -92,3 +92,46 @@ function uploadProfilePicture(array &$errors, string $username) {
         }
     }
 }
+
+function loadComments($path) {
+    $comments = [];
+
+    $file = fopen($path, "r");
+    if ($file === false)
+        die("HIBA: A fájl megnyitása nem sikerült!");
+
+    while (($line = fgets($file)) !== false) {
+        $comment = unserialize($line);
+        $comments[] = $comment;
+    }
+
+    return $comments;
+}
+
+
+function saveComments($path, $comments) {
+    $file = fopen($path, "w");
+    if ($file === false)
+        die("HIBA: A fájl megnyitása nem sikerült!");
+
+    foreach ($comments as $comment) {
+        $serialized_comment = serialize($comment);
+        fwrite($file, $serialized_comment . "\n");
+    }
+
+    fclose($file);
+}
+
+function getProfilePicture($path, $username, $allowed_extensions) {
+    $path = strtolower($path);
+    $username = strtolower($username);
+
+    foreach ($allowed_extensions as $extension) {
+        $filename = $path . "/" . $username . "." . strtolower($extension);
+
+        if (file_exists($filename))
+            return $filename;
+    }
+
+    return "../images/profile-pictures/default.png";
+}

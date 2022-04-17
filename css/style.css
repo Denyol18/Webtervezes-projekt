@@ -112,6 +112,31 @@ footer {
     font-weight: bold;
 }
 
+.comment {
+    margin: 20px 10px;
+    overflow: auto;
+    padding: 10px;
+    background-color: #2E5266FF;
+}
+
+.comment h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.comment .date {
+    float: right;
+    margin-top: 5px;
+}
+
+.profile {
+    height: 120px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
 .kepjobbra {
     position: relative;
     margin: 20px;

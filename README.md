@@ -1,5 +1,5 @@
 # Webtervezés projekt feladat
 
-Nagyon eygszerű, PHP alapú website.
+Nagyon egyszerű, PHP alapú website.
 
 Téma: Kedvenc videojátékaink
